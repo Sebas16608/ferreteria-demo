@@ -293,18 +293,8 @@ function initAnimations() {
   }, observerOptions);
 
   document.querySelectorAll('.catalogo-card, .producto-card, .feature-item, .info-card, .stat-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
-
-  setTimeout(() => {
-    document.querySelectorAll('.animate-in').forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    });
-  }, 100);
 }
 
 function animateCounter(element) {
