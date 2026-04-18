@@ -458,7 +458,7 @@ button {
   height: 100%;
   background: 
     linear-gradient(135deg, rgba(26, 26, 46, 0.97) 0%, rgba(22, 33, 62, 0.92) 100%),
-    url('https://images.unsplash.com/photo-1581247367945-863aea2a0b50?w=1920') center/cover;
+    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920') center/cover;
   z-index: -1;
 }
 
