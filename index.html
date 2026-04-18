@@ -3,172 +3,413 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ferretería UMG - Herramientas de calidad profesional para constructores, artesanos y aficionados al bricolage">
     <title>Ferretería UMG - Herramientas de Calidad</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="./media/logo-umg.png" type="image/png">
   </head>
   <body>
-    <header class="header">
-      <nav class="navbar">
-        <div class="logo">
-          <img src="./media/logo-umg.png" alt="Ferretería UMG" class="logo-img">
-          <span>Ferretería UMG</span>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#catalogos">Catálogos</a></li>
-          <li><a href="#productos">Productos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+    <header class="header" id="header">
+      <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <a href="#inicio" class="logo" aria-label="Ir a inicio">
+          <img src="./media/logo-umg.png" alt="Ferretería UMG" class="logo-img" width="60" height="60">
+          <span class="logo-text">Ferretería UMG</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu" role="menubar">
+          <li role="none"><a href="#inicio" role="menuitem" class="nav-link">Inicio</a></li>
+          <li role="none"><a href="#catalogos" role="menuitem" class="nav-link">Catálogos</a></li>
+          <li role="none"><a href="#productos" role="menuitem" class="nav-link">Productos</a></li>
+          <li role="none"><a href="#contacto" role="menuitem" class="nav-link">Contacto</a></li>
         </ul>
-        <div class="menu-toggle" id="menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <button class="cart-btn" id="cart-btn" aria-label="Ver carrito">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
       </nav>
     </header>
 
-    <section class="hero" id="inicio">
-      <div class="hero-content">
-        <h1>Ferretería UMG</h1>
-        <h2>Todo lo que necesitas para tus proyectos</h2>
-        <p>Herramientas de calidad profesional para constructores, artesanos y aficionados al bricolage</p>
-        <a href="#catalogos" class="btn-hero">Ver Catálogos</a>
+    <div class="cart-sidebar" id="cart-sidebar" aria-hidden="true">
+      <div class="cart-header">
+        <h3>Carrito de Compras</h3>
+        <button class="cart-close" id="cart-close" aria-label="Cerrar carrito">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
-    </section>
+      <div class="cart-items" id="cart-items">
+        <p class="cart-empty">Tu carrito está vacío</p>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total">Q0.00</span>
+        </div>
+        <button class="btn-checkout" id="btn-checkout">Finalizar Compra</button>
+      </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
 
-    <section class="catalogos" id="catalogos">
-      <div class="section-title">
-        <h2>Nuestros Catálogos</h2>
-        <p>Explora nuestra amplia gama de herramientas y materiales</p>
-      </div>
-      <div class="catalogos-grid">
-        <div class="catalogo-card">
-          <div class="catalogo-icon">🔧</div>
-          <h3>Herramientas Manual</h3>
-          <p>Martillos, destornilladores, llaves, alicates y más</p>
+    <main>
+      <section class="hero" id="inicio" aria-label="Sección principal">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+          <span class="hero-badge">¡Bienvenido!</span>
+          <h1>Ferretería UMG</h1>
+          <h2>Todo lo que necesitas para tus proyectos</h2>
+          <p>Herramientas de calidad profesional para constructores, artesanos y aficionados al bricolage</p>
+          <div class="hero-buttons">
+            <a href="#catalogos" class="btn btn-primary">
+              <i class="fas fa-book-open"></i> Ver Catálogos
+            </a>
+            <a href="#contacto" class="btn btn-secondary">
+              <i class="fas fa-phone-alt"></i> Contactar
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-count="500">0</span>
+              <span class="stat-label">Productos</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="10">0</span>
+              <span class="stat-label">Años Experiencia</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="1000">0</span>
+              <span class="stat-label">Clientes</span>
+            </div>
+          </div>
         </div>
-        <div class="catalogo-card">
-          <div class="catalogo-icon">⚡</div>
-          <h3>Herramientas Eléctricas</h3>
-          <p>Taladros, seguetas, pulidoras, lijadoras</p>
-        </div>
-        <div class="catalogo-card">
-          <div class="catalogo-icon">🔩</div>
-          <h3>Ferretería General</h3>
-          <p>Tornillos, tuercas, clavos, anclajes</p>
-        </div>
-        <div class="catalogo-card">
-          <div class="catalogo-icon">🎨</div>
-          <h3>Pinturas y Acabados</h3>
-          <p>Pinturas, barnices, selladores, pegamentos</p>
-        </div>
-        <div class="catalogo-card">
-          <div class="catalogo-icon">🪵</div>
-          <h3>Madera y Tableros</h3>
-          <p>Madera tratada, MDF, OSB, contrachapado</p>
-        </div>
-        <div class="catalogo-card">
-          <div class="catalogo-icon">🚿</div>
-          <h3>Plomería</h3>
-          <p>Tubos, conexiones, válvulas, accesorios</p>
-        </div>
-      </div>
-    </section>
+        <a href="#catalogos" class="scroll-down" aria-label="Ir a catálogos">
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </section>
 
-    <section class="productos" id="productos">
-      <div class="section-title">
-        <h2>Productos Destacados</h2>
-        <p>Las mejores marcas a los mejores precios</p>
-      </div>
-      <div class="productos-grid">
-        <div class="producto-card">
-          <div class="producto-img">🛠️</div>
-          <h3>Taladro Percutor</h3>
-          <p class="marca">DeWalt</p>
-          <p class="precio">Q1,250.00</p>
-          <button class="btn-producto">Agregar al Carrito</button>
+      <section class="catalogos" id="catalogos" aria-labelledby="catalogos-title">
+        <div class="container">
+          <div class="section-header" id="catalogos-title">
+            <span class="section-subtitle">Explora nuestra variedad</span>
+            <h2>Nuestros Catálogos</h2>
+            <p>Encuentra exactamente lo que necesitas para cada tipo de proyecto</p>
+          </div>
+          <div class="catalogos-grid">
+            <article class="catalogo-card" tabindex="0">
+              <div class="catalogo-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h3>Herramientas Manual</h3>
+              <p>Martillos, destornilladores, llaves, alicates y más</p>
+              <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </article>
+            <article class="catalogo-card" tabindex="0">
+              <div class="catalogo-icon">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h3>Herramientas Eléctricas</h3>
+              <p>Taladros, seguetas, pulidoras, lijadoras</p>
+              <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </article>
+            <article class="catalogo-card" tabindex="0">
+              <div class="catalogo-icon">
+                <i class="fas fa-screwdriver"></i>
+              </div>
+              <h3>Ferretería General</h3>
+              <p>Tornillos, tuercas, clavos, anclajes</p>
+              <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </article>
+            <article class="catalogo-card" tabindex="0">
+              <div class="catalogo-icon">
+                <i class="fas fa-paint-roller"></i>
+              </div>
+              <h3>Pinturas y Acabados</h3>
+              <p>Pinturas, barnices, selladores, pegamentos</p>
+              <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </article>
+            <article class="catalogo-card" tabindex="0">
+              <div class="catalogo-icon">
+                <i class="fas fa-tree"></i>
+              </div>
+              <h3>Madera y Tableros</h3>
+              <p>Madera tratada, MDF, OSB, contrachapado</p>
+              <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </article>
+            <article class="catalogo-card" tabindex="0">
+              <div class="catalogo-icon">
+                <i class="fas fa-shower"></i>
+              </div>
+              <h3>Plomería</h3>
+              <p>Tubos, conexiones, válvulas, accesorios</p>
+              <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </article>
+          </div>
         </div>
-        <div class="producto-card">
-          <div class="producto-img">🔨</div>
-          <h3>Martillo Carpintero</h3>
-          <p class="marca">Stanley</p>
-          <p class="precio">Q85.00</p>
-          <button class="btn-producto">Agregar al Carrito</button>
-        </div>
-        <div class="producto-card">
-          <div class="producto-img">🔧</div>
-          <h3>Juego de Destornilladores</h3>
-          <p class="marca">Bosch</p>
-          <p class="precio">Q220.00</p>
-          <button class="btn-producto">Agregar al Carrito</button>
-        </div>
-        <div class="producto-card">
-          <div class="producto-img">⚙️</div>
-          <h3>Sierra Circular</h3>
-          <p class="marca">Makita</p>
-          <p class="precio">Q1,850.00</p>
-          <button class="btn-producto">Agregar al Carrito</button>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="contacto" id="contacto">
-      <div class="section-title">
-        <h2>Contáctanos</h2>
-        <p>Estamos listos para ayudarte</p>
-      </div>
-      <div class="contacto-grid">
-        <div class="contacto-info">
-          <div class="info-item">
-            <span class="info-icon">📍</span>
-            <div>
-              <h4>Dirección</h4>
-              <p>Ciudad, Guatemala</p>
-            </div>
+      <section class="productos" id="productos" aria-labelledby="productos-title">
+        <div class="container">
+          <div class="section-header" id="productos-title">
+            <span class="section-subtitle">Los más vendidos</span>
+            <h2>Productos Destacados</h2>
+            <p>Las mejores marcas a los mejores precios del mercado</p>
           </div>
-          <div class="info-item">
-            <span class="info-icon">📞</span>
-            <div>
-              <h4>Teléfono</h4>
-              <p>(502) 1234-5678</p>
-            </div>
+          <div class="productos-grid">
+            <article class="producto-card" data-id="1" data-name="Taladro Percutor" data-price="1250">
+              <div class="producto-badge">Top</div>
+              <div class="producto-img">
+                <i class="fas fa-drill"></i>
+              </div>
+              <div class="producto-info">
+                <h3>Taladro Percutor</h3>
+                <p class="marca"><i class="fas fa-tag"></i> DeWalt</p>
+                <p class="precio">Q1,250.00</p>
+                <button class="btn-add-cart">
+                  <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                </button>
+              </div>
+            </article>
+            <article class="producto-card" data-id="2" data-name="Martillo Carpintero" data-price="85">
+              <div class="producto-img">
+                <i class="fas fa-hammer"></i>
+              </div>
+              <div class="producto-info">
+                <h3>Martillo Carpintero</h3>
+                <p class="marca"><i class="fas fa-tag"></i> Stanley</p>
+                <p class="precio">Q85.00</p>
+                <button class="btn-add-cart">
+                  <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                </button>
+              </div>
+            </article>
+            <article class="producto-card" data-id="3" data-name="Juego de Destornilladores" data-price="220">
+              <div class="producto-badge">Nuevo</div>
+              <div class="producto-img">
+                <i class="fas fa-screwdriver"></i>
+              </div>
+              <div class="producto-info">
+                <h3>Juego de Destornilladores</h3>
+                <p class="marca"><i class="fas fa-tag"></i> Bosch</p>
+                <p class="precio">Q220.00</p>
+                <button class="btn-add-cart">
+                  <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                </button>
+              </div>
+            </article>
+            <article class="producto-card" data-id="4" data-name="Sierra Circular" data-price="1850">
+              <div class="producto-img">
+                <i class="fas fa-blades"></i>
+              </div>
+              <div class="producto-info">
+                <h3>Sierra Circular</h3>
+                <p class="marca"><i class="fas fa-tag"></i> Makita</p>
+                <p class="precio">Q1,850.00</p>
+                <button class="btn-add-cart">
+                  <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                </button>
+              </div>
+            </article>
+            <article class="producto-card" data-id="5" data-name="Sierra de Mano" data-price="350">
+              <div class="producto-img">
+                <i class="fas fa-wave-square"></i>
+              </div>
+              <div class="producto-info">
+                <h3>Sierra de Mano</h3>
+                <p class="marca"><i class="fas fa-tag"></i> Irwin</p>
+                <p class="precio">Q350.00</p>
+                <button class="btn-add-cart">
+                  <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                </button>
+              </div>
+            </article>
+            <article class="producto-card" data-id="6" data-name="Juego de Llaves" data-price="680">
+              <div class="producto-badge">Oferta</div>
+              <div class="producto-img">
+                <i class="fas fa-wrench"></i>
+              </div>
+              <div class="producto-info">
+                <h3>Juego de Llaves</h3>
+                <p class="marca"><i class="fas fa-tag"></i> Stanley</p>
+                <p class="precio">Q680.00</p>
+                <button class="btn-add-cart">
+                  <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                </button>
+              </div>
+            </article>
           </div>
-          <div class="info-item">
-            <span class="info-icon">✉️</span>
-            <div>
-              <h4>Email</h4>
-              <p>info@ferreteriaumg.com</p>
+        </div>
+      </section>
+
+      <section class="features" aria-label="Características">
+        <div class="container">
+          <div class="features-grid">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-shipping-fast"></i>
+              </div>
+              <h3>Envío Gratis</h3>
+              <p>En pedidos mayores a Q500</p>
             </div>
-          </div>
-          <div class="info-item">
-            <span class="info-icon">🕐</span>
-            <div>
-              <h4>Horario</h4>
-              <p>Lun - Vie: 8:00 a 18:00</p>
-              <p>Sáb: 8:00 a 14:00</p>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Garantía</h3>
+              <p>En todos nuestros productos</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h3>Soporte 24/7</h3>
+              <p>Siempre listos para ayudarte</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <h3>Mejores Precios</h3>
+              <p>Garantizados en el mercado</p>
             </div>
           </div>
         </div>
-        <form class="contacto-form" id="contacto-form">
-          <input type="text" placeholder="Nombre" required>
-          <input type="email" placeholder="Email" required>
-          <input type="tel" placeholder="Teléfono">
-          <textarea placeholder="Mensaje" rows="5" required></textarea>
-          <button type="submit" class="btn-submit">Enviar Mensaje</button>
-        </form>
-      </div>
-    </section>
+      </section>
+
+      <section class="contacto" id="contacto" aria-labelledby="contacto-title">
+        <div class="container">
+          <div class="section-header" id="contacto-title">
+            <span class="section-subtitle">Escríbenos</span>
+            <h2>Contáctanos</h2>
+            <p>Estamos listos para ayudarte con cualquier consulta</p>
+          </div>
+          <div class="contacto-grid">
+            <div class="contacto-info">
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Dirección</h4>
+                  <p>Ciudad, Guatemala</p>
+                  <p class="info-detail">Visítanos en nuestra tienda física</p>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Teléfono</h4>
+                  <p>(502) 1234-5678</p>
+                  <p class="info-detail">Llamadas y WhatsApp</p>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Email</h4>
+                  <p>info@ferreteriaumg.com</p>
+                  <p class="info-detail">Respondemos en 24 horas</p>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Horario</h4>
+                  <p>Lun - Vie: 8:00 a 18:00</p>
+                  <p>Sáb: 8:00 a 14:00</p>
+                </div>
+              </div>
+              <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+            <form class="contacto-form" id="contacto-form" novalidate>
+              <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                <span class="error-message" id="nombre-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                <span class="error-message" id="email-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono (opcional)</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="(502) 0000-0000">
+              </div>
+              <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                <span class="error-message" id="mensaje-error"></span>
+              </div>
+              <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i> Enviar Mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="./media/logo-umg.png" alt="Ferretería UMG">
-          <span>Ferretería UMG</span>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#inicio" class="footer-logo">
+              <img src="./media/logo-umg.png" alt="Ferretería UMG" width="50" height="50">
+              <span>Ferretería UMG</span>
+            </a>
+            <p>Tu socio confiable en herramientas y materiales de construcción. Calidad profesional a los mejores precios.</p>
+          </div>
+          <div class="footer-links">
+            <h4>Enlaces Rápidos</h4>
+            <ul>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#catalogos">Catálogos</a></li>
+              <li><a href="#productos">Productos</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Categorías</h4>
+            <ul>
+              <li><a href="#">Herramientas Manuales</a></li>
+              <li><a href="#">Herramientas Eléctricas</a></li>
+              <li><a href="#">Ferretería</a></li>
+              <li><a href="#">Pinturas</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h4>Contáctanos</h4>
+            <p><i class="fas fa-phone"></i> (502) 1234-5678</p>
+            <p><i class="fas fa-envelope"></i> info@ferreteriaumg.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Ciudad, Guatemala</p>
+          </div>
         </div>
-        <p>&copy; 2024 Ferretería UMG. Todos los derechos reservados.</p>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Ferretería UMG. Todos los derechos reservados.</p>
+          <p class="footer-credit">Diseñado con <i class="fas fa-heart"></i> para constructores profesionales</p>
+        </div>
       </div>
     </footer>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Volver arriba">
+      <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="./script.js"></script>
   </body>
