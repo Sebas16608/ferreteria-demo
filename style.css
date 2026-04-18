@@ -723,11 +723,10 @@ button {
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--white);
   transition: var(--transition);
   box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
-  font-weight: 900;
 }
 
 .catalogo-card:hover .catalogo-icon {
