@@ -590,7 +590,6 @@ button {
   justify-content: center;
   gap: 3rem;
   flex-wrap: wrap;
-  animation: fadeInUp 0.8s ease 0.7s both;
 }
 
 .stat-item {
