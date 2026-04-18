@@ -168,9 +168,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   transition: var(--transition);
   box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+  flex-shrink: 0;
 }
 
 .cart-btn:hover {
@@ -1356,20 +1357,53 @@ button {
     display: block;
   }
 
-  .menu-toggle.active {
+.menu-toggle.active {
     position: fixed;
     top: 20px;
     right: 20px;
   }
 
-  .cart-btn {
+  .nav-menu {
+    display: none;
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1001;
-    width: 55px;
-    height: 55px;
-    box-shadow: 0 5px 20px rgba(255, 107, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--white) 0%, var(--light) 100%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 1000;
+    padding: 2rem;
+    padding-top: 80px;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .cart-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    box-shadow: none;
+  }
+
+  .cart-count {
+    position: static;
+    width: auto;
+    height: auto;
+    font-size: 0.8rem;
   }
 
   .hero {
